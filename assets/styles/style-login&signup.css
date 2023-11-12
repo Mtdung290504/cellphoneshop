@@ -1,0 +1,58 @@
+body {
+    background-color: #EEE;
+}
+.container form {
+    background-color: white;
+    width: 680px;
+    /* border: 1px solid; */
+    padding: 40px 80px;
+    display: block;
+    margin: auto;
+    margin-top: 80px;
+    margin-bottom: 80px;
+    border-radius: 5px;
+}
+.container form .title {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 27px;
+}
+.container form table {
+    margin-top: 30px;
+    width: 100%;
+    font-size: 18px;
+}
+.container form table label, input[type="text"], input[type="password"], input[type="submit"], input[type="email"], input[type="tel"], input[type="date"], input[type="number"] {
+    font-size: 20px;
+    padding: 12px;
+    margin: 10px 0px;
+    font-family: 'Times New Roman', Times, serif;
+}
+.container form table label {
+    font-size: 18px;
+}
+.container form table input[type="text"], input[type="password"], input[type="email"], input[type="tel"], input[type="date"], input[type="number"] {
+    cursor: text;
+    width: 100%;
+    border: 1px solid lightgray;
+}
+.container form table input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button {
+    display: none;
+}
+.container form table td.error {
+    color: red;
+    font-size: 18px;
+    /* margin: 0px 0px 8px 0px; */
+    padding: 0px 0px 0px 6px;
+}
+.container form table .td-checkbox {
+    padding: 4px;
+}
+.container form table input[type="submit"] {
+    display: block;
+    margin: 10px auto;
+    width: 100%;
+    cursor: pointer;
+    border: none;
+}

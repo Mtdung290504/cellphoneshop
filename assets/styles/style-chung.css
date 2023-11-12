@@ -1,0 +1,67 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    user-select: none;
+}
+*::-webkit-scrollbar {
+    width: 10px;
+}
+*::-webkit-scrollbar-thumb {
+    background-color: #222;
+}
+*::-webkit-scrollbar-track {
+    background-color: #DDD;
+}
+html {
+    scroll-behavior: smooth;
+}
+
+/*HEADER*/
+    a {
+        text-decoration: none;
+        color: black;
+    }
+    .header {
+        width: 100%;
+        height: fit-content;
+        background-color: black;
+        color: white;
+        padding: 25px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .header .greeting {
+        font-size: 20px;
+        margin-right: 20px;
+    }
+    .header a {
+        color: white;
+    }
+    .header a.title {
+        display: block;
+        font-size: 35px;
+    }
+    .header a.login-link {
+        font-size: 20px;
+    }
+    .header a.login-link:hover {
+        text-decoration: underline;
+    }
+/*HEADER*/
+
+/*FOOTER*/
+    .footer {
+        background-color: black;
+        color: white;
+        font-size: 20px;
+        padding: 40px 25px;
+        margin-top: 40px;
+    }
+/*FOOTER*/
+
+.pointer label, input{
+    cursor: pointer;
+    /* padding: 4px !important; */
+}
