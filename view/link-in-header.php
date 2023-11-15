@@ -10,9 +10,9 @@
             echo ($_SESSION['is_admin']!=1) ? '<a class="login-link" href="./user">Xem Thông Tin</a> /' 
                                             : '<a class="login-link" href="./manage">Đến Trang Quản Trị</a> /';
         ?>
-        <a class="login-link" href="?action=logout">Đăng Xuất</a>
+        <a class="login-link" href="<?php echo getRootUrl();?>logout">Đăng Xuất</a>
     <?php } else /*NẾU CHƯA ĐĂNG NHẬP*/ {?>
-        <a href="login" class="login-link">Đăng Nhập</a> /
-        <a href="signup" class="login-link">Đăng Ký</a>
+        <a href="<?php echo getRootUrl();?>login" class="login-link">Đăng Nhập</a> /
+        <a href="<?php echo getRootUrl();?>signup" class="login-link">Đăng Ký</a>
     <?php }?>
 </span>

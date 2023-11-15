@@ -46,10 +46,10 @@
             }
         }
     } else if(isset($_POST['login'])) {
-        header("Location: ?action=login");
+        header("Location: ".getRootUrl()."/login");
     } else {
         if(!isset($have_access)) {
-            header('Location: ..');
+            header('Location: '.getRootUrl());
         }
     }
     
