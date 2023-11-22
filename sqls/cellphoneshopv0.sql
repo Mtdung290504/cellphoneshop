@@ -23,6 +23,7 @@ CREATE TABLE if not exists nhap_dienthoai(
     ngay_nhap DATE NOT NULL,
     so_luong_nhap INT NOT NULL
 );
+
 CREATE TABLE if not exists ban_dienthoai(
     ma_ban INT PRIMARY KEY AUTO_INCREMENT,
     ma_dienthoai INT FOREIGN KEY REFERENCES dienthoai(ma_dienthoai),
@@ -43,37 +44,35 @@ CREATE TABLE if not exists hang(
 
 CREATE TABLE if not exists nguoidung(
     ma_nguoidung INT PRIMARY KEY AUTO_INCREMENT,
-    quyen_admin tinyint(1) DEFAULT 0  
-    -- user_id: INT (Khóa chính, định danh duy nhất cho người dùng)
-    -- username: VARCHAR (Tên đăng nhập của người dùng)
-    -- password: VARCHAR (Mật khẩu của người dùng)
-    -- email: VARCHAR (Địa chỉ email của người dùng)
-    -- full_name: VARCHAR (Họ và tên đầy đủ của người dùng)
-    -- address: TEXT (Địa chỉ của người dùng)
-    -- phone_number: VARCHAR (Số điện thoại của người dùng)
+    quyen_admin tinyint(1) DEFAULT 0,
+    ten_dang_nhap varchar(30) NOT NULL,
+    mat_khau varchar(200) NOT NULL,
+    ho_ten nvarchar(30),
+    email varchar(30),
+    dien_thoai varchar(30);
+    dia_chi TEXT
 );
 
 CREATE TABLE if not exists binhluan(
+    --XÁC MINH ROBOT KHI BÌNH LUẬN
     ma_binhluan INT PRIMARY KEY AUTO_INCREMENT,
-    ma_nguoidung INT FOREIGN KEY REFERENCES dienthoai(ma_dienthoai)
-    -- comment_id: INT (Khóa chính, định danh duy nhất cho bình luận)
-    -- user_id: INT (Khóa ngoại tham chiếu tới bảng "Users")
-    -- product_id: INT (Khóa ngoại tham chiếu tới bảng "Products")
-    -- comment_text: TEXT (Nội dung bình luận)
+    ma_nguoidung INT FOREIGN KEY REFERENCES nguoidung(ma_nguoidung),
+    ma_dienthoai INT FOREIGN KEY REFERENCES dienthoai(ma_dienthoai),
+    noi_dung TEXT NOT NULL
 );
 
-CREATE TABLE if not exists danhgia(
+CREATE TABLE if not exists danhgia( 
+    --NHỚ ĐỐI VỚI MỖI 1 SP, MỖI NGƯỜI DÙNG CHỈ CÓ ĐÚNG 1 GIÁ TRỊ ĐÁNH GIÁ.
+    --NẾU ĐÁNH GIÁ TRÙNG THÌ BÁO ĐÃ ĐÁNH GIÁ RỒI.
     ma_danhgia INT PRIMARY KEY AUTO_INCREMENT,
-    -- rating_id: INT (Khóa chính, định danh duy nhất cho đánh giá)
-    -- user_id: INT (Khóa ngoại tham chiếu tới bảng "Users")
-    -- product_id: INT (Khóa ngoại tham chiếu tới bảng "Products")
-    -- rating_value: INT (Giá trị đánh giá từ 1 đến 5)
+    ma_nguoidung INT FOREIGN KEY REFERENCES nguoidung(ma_nguoidung),
+    ma_dienthoai INT FOREIGN KEY REFERENCES dienthoai(ma_dienthoai),
+    gia_tri INT NOT NULL
 );
 
 CREATE TABLE if not exists giohang(
     ma_giohang INT PRIMARY KEY AUTO_INCREMENT,
-    -- cart_id: INT (Khóa chính, định danh duy nhất cho giỏ hàng)
-    -- user_id: INT (Khóa ngoại tham chiếu tới bảng "Users")
-    -- product_id: INT (Khóa ngoại tham chiếu tới bảng "Products")
-    -- quantity: INT (Số lượng sản phẩm trong giỏ hàng)
+    ma_nguoidung INT FOREIGN KEY REFERENCES nguoidung(ma_nguoidung),
+    ma_dienthoai INT FOREIGN KEY REFERENCES dienthoai(ma_dienthoai),
+    so_luong INT NOT NULL
 );
